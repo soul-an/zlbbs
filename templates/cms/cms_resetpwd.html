@@ -1,21 +1,15 @@
 {% extends 'cms/cms_base.html' %}
 {% from 'common/_macros.html' import static %}
 
-{% block title %}
+{% block title -%}
     修改密码
-{% endblock %}
+{%- endblock %}
 
 {% block page_title %}
     {{ self.title() }}
 {% endblock %}
 
 {% block head %}
-    {# form-container样式 #}
-    <style>
-        .form-container{
-            width: 300px;
-        }
-    </style>
     {#  导入ajax功能文件  #}
     <script src="{{ static('cms/js/resetpwd.js') }}"></script>
 {% endblock %}

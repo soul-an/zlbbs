@@ -9,12 +9,15 @@ from flask import (
     url_for,
     g,
     jsonify)
-from .forms import LoginForm, ResetpwdForm
+from .forms import LoginForm, ResetpwdForm, ResetEmailForm
 from .models import CMSUser
 from .decorators import login_required
-from exts import db
-from utils import restful
+from exts import db, mail
+from flask_mail import Message
+from utils import restful, zlcache
 import config
+import string
+import random
 
 bp = Blueprint('cms', __name__, url_prefix='/cms')
 
@@ -39,6 +42,39 @@ def logout():
 @login_required
 def profile():
     return render_template('cms/cms_profile.html')
+
+
+# 测试发送邮件视图
+@bp.route('/email/')
+@login_required
+def send_email():
+    message = Message('邮件发送', recipients=['huanganfa66@163.com'], body='测试')
+    mail.send(message)
+    return '邮件已发送成功！'
+
+
+# 发送邮件验证码视图
+@bp.route('/email_captcha/')
+@login_required
+def email_captcha():
+    # /email_captcha/?email=xxx.@qq.com 获取到发送邮箱
+    email = request.args.get('email')
+    if not email:
+        return restful.params_error('请传递邮箱参数！')
+
+    # 随机生成6位验证码字串,大小写字母加上0-9数字
+    source = list(string.ascii_letters)
+    source.extend(map(lambda x: str(x), range(0, 10)))
+    captcha = "".join(random.sample(source, 6))
+
+    # 给获取到的新的邮箱发送邮件验证码
+    message = Message('知了论坛邮箱验证码', recipients=[email], body='你的验证码是：%s' % captcha)
+    try:
+        mail.send(message)
+    except:
+        return restful.server_error()
+    zlcache.set(email, captcha)  # 添加验证码缓存
+    return restful.success()
 
 
 # 登录类视图
@@ -99,5 +135,25 @@ class ResetPwdView(views.MethodView):
             return restful.params_error(message)
 
 
+# 修改邮箱类视图
+class ResetEmailView(views.MethodView):
+    decorators = [login_required]  # 保证用户登陆
+
+    def get(self):
+        return render_template('cms/cms_resetemail.html')
+
+    def post(self):
+        form = ResetEmailForm(request.form)
+        if form.validate():
+            email = form.email.data
+            user = g.cms_user
+            user.email = email
+            db.session.commit()
+            return restful.success()
+        else:
+            return restful.params_error(form.get_error())
+
+
 bp.add_url_rule('/login/', view_func=LoginView.as_view('login'))
 bp.add_url_rule('/resetpwd/', view_func=ResetPwdView.as_view('resetpwd'))
+bp.add_url_rule('/resetemail/', view_func=ResetEmailView.as_view('resetemail'))

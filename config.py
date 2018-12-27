@@ -22,3 +22,11 @@ SQLALCHEMY_DATABASE_URI = DB_URI
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 CMS_USER_ID = 'ahijdnknj'  # 随意设置cms用户的id字串
+
+# 发送者邮箱的服务器地址和邮箱配置参数，这里使用qq邮箱
+MAIL_SERVER = 'smtp.qq.com'
+MAIL_PORT = '587'
+MAIL_USE_TLS = True
+MAIL_USERNAME = '773985366@qq.com'
+MAIL_PASSWORD = 'sjvjkwmovrkzbdge'
+MAIL_DEFAULT_SENDER = '773985366@qq.com'

@@ -193,3 +193,8 @@ body {
     background: #ecedf0;
     overflow: hidden;
 }
+
+/* form-container样式 */
+.form-container {
+    width: 300px;
+}
