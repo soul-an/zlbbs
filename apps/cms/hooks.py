@@ -2,7 +2,7 @@
 # hooks.py by Anderson Huang at 2018/12/25 14:31
 from .views import bp
 from flask import session, g
-from .models import CMSUser
+from .models import CMSUser, CMSPermission
 import config
 
 """
@@ -18,3 +18,9 @@ def before_request():
         user = CMSUser.query.get(user_id)
         if user:
             g.cms_user = user
+
+
+# 返回cms用户权限的钩子函数
+@bp.context_processor
+def cms_context_processor():
+    return {'CMSPermission': CMSPermission}

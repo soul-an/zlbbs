@@ -1,6 +1,4 @@
-/**
- * Created by Administrator on 2016/12/17.
- */
+/** Created by Administrator on 2016/12/17.**/
 
 $(function () {
     $('.nav-sidebar>li>a').click(function (event) {
@@ -45,20 +43,17 @@ $(function () {
     } else if (url.indexOf('permissions') >= 0) {
         var permissionManageLi = $('.permission-manage');
         permissionManageLi.addClass('unfold').siblings().removeClass('unfold');
-    } else if (url.indexOf('roles') >= 0) {
-        var roleManageLi = $('.role-manage');
-        roleManageLi.addClass('unfold').siblings().removeClass('unfold');
-    } else if (url.indexOf('users') >= 0) {
-        var userManageLi = $('.user-manage');
+    } else if (url.indexOf('fusers') >= 0) {
+        var userManageLi = $('.fuser-manage');
         userManageLi.addClass('unfold').siblings().removeClass('unfold');
-    } else if (url.indexOf('cmsuser_manage') >= 0) {
-        var cmsuserManageLi = $('.cmsuser-manage');
+    } else if (url.indexOf('cuser') >= 0) {
+        var cmsuserManageLi = $('.cuser-manage');
         cmsuserManageLi.addClass('unfold').siblings().removeClass('unfold');
-    } else if (url.indexOf('cmsrole_manage') >= 0) {
-        var cmsroleManageLi = $('.cmsrole-manage');
+    } else if (url.indexOf('croles') >= 0) {
+        var cmsroleManageLi = $('.crole-manage');
         cmsroleManageLi.addClass('unfold').siblings().removeClass('unfold');
     } else if (url.indexOf('comments') >= 0) {
-        var commentsManageLi = $('.comments-manage');
+        var commentsManageLi = $('.comment-manage');
         commentsManageLi.addClass('unfold').siblings().removeClass('unfold');
     }
 });

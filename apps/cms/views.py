@@ -10,8 +10,8 @@ from flask import (
     g,
     jsonify)
 from .forms import LoginForm, ResetpwdForm, ResetEmailForm
-from .models import CMSUser
-from .decorators import login_required
+from .models import CMSUser, CMSPermission
+from .decorators import login_required, permission_required
 from exts import db, mail
 from flask_mail import Message
 from utils import restful, zlcache
@@ -75,6 +75,54 @@ def email_captcha():
         return restful.server_error()
     zlcache.set(email, captcha)  # 添加验证码缓存
     return restful.success()
+
+
+# 帖子管理模块视图
+@bp.route('/posts/')
+@login_required
+@permission_required(CMSPermission.POSTER)
+def posts():
+    return render_template('cms/cms_posts.html')
+
+
+# 评论管理模块驶入
+@bp.route('/comments/')
+@login_required
+@permission_required(CMSPermission.COMMENTER)
+def comments():
+    return render_template('cms/cms_comments.html')
+
+
+# 板块管理模块视图
+@bp.route('/boards/')
+@login_required
+@permission_required(CMSPermission.BOARDER)
+def boards():
+    return render_template('cms/cms_boards.html')
+
+
+# 前台用户管理模块视图
+@bp.route('/fusers/')
+@login_required
+@permission_required(CMSPermission.FRONTUSER)
+def fusers():
+    return render_template('cms/cms_fusers.html')
+
+
+# CMS用户管理视图
+@bp.route('/cusers/')
+@login_required
+@permission_required(CMSPermission.CMSUSER)
+def cusers():
+    return render_template('cms/cms_cusers.html')
+
+
+# CMS组管理视图
+@bp.route('/croles/')
+@login_required
+@permission_required(CMSPermission.ALL_PERMISSION)
+def croles():
+    return render_template('cms/cms_croles.html')
 
 
 # 登录类视图
