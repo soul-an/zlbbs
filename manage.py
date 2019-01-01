@@ -5,10 +5,15 @@ from flask_migrate import Migrate, MigrateCommand
 from exts import db
 from app import create_app
 from apps.cms import models as cms_models
+from apps.front import models as front_models
 
+# 后台模型对象
 CMSUser = cms_models.CMSUser
 CMSRole = cms_models.CMSRole
 CMSPermission = cms_models.CMSPermission
+
+# 前台模型对象
+FrontUser = front_models.FrontUser
 
 app = create_app()
 
@@ -98,6 +103,17 @@ def test_permission(name, email):
                 print('这个用户没有开发者权限！')
     else:
         print('没有这个用户！')
+
+
+# 命令行创建前台用户映射函数
+@manager.option('-t', '--telephone', dest='telephone')
+@manager.option('-u', '--username', dest='username')
+@manager.option('-p', '--password', dest='password')
+def create_front_user(telephone, username, password):
+    user = FrontUser(telephone=telephone, username=username, password=password)
+    db.session.add(user)
+    db.session.commit()
+    print('FRON前台用户创建成功！')
 
 
 if __name__ == '__main__':
