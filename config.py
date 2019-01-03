@@ -6,7 +6,7 @@ import os
 配置文件
 """
 
-SECRET_KEY = os.urandom(24)   # 设置随机的SECRET_KEY
+SECRET_KEY = os.urandom(24)  # 设置随机的SECRET_KEY
 
 # HOSTNAME = '192.168.1.114'  # 链接远程mysql数据库
 HOSTNAME = '127.0.0.1'  # 链接本机mysql数据库
@@ -31,3 +31,9 @@ MAIL_USE_TLS = True
 MAIL_USERNAME = '773985366@qq.com'
 MAIL_PASSWORD = 'sjvjkwmovrkzbdge'
 MAIL_DEFAULT_SENDER = '773985366@qq.com'
+
+# 阿里大于短信验证码相关配置参数
+ALIDAYU_APP_KEY = '23709557'
+ALIDAYU_APP_SECRET = 'd9e430e0a96e21c92adacb522a905c4b'
+ALIDAYU_SIGN_NAME = '小饭桌应用'
+ALIDAYU_TEMPLATE_CODE = 'SMS_68465012'
