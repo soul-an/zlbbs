@@ -6,6 +6,7 @@ from exts import db
 from app import create_app
 from apps.cms import models as cms_models
 from apps.front import models as front_models
+from apps.models import BannerModel  # 轮播图模型
 
 # 后台模型对象
 CMSUser = cms_models.CMSUser

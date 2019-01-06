@@ -1,11 +1,16 @@
 # encoding: utf-8
 # views.py by Anderson Huang at 2018/12/24 11:28
-from flask import Blueprint, request, make_response
+from flask import (
+    Blueprint,
+    request,
+    make_response,
+    jsonify)
 from exts import alidayu
 from utils import restful, zlcache
 from utils.captcha import Captcha
 from apps.common.forms import SMSCaptchaForm
 from io import BytesIO
+import qiniu
 
 bp = Blueprint('common', __name__, url_prefix='/common')
 
@@ -58,3 +63,14 @@ def graph_captcha():
     resp = make_response(out.read())
     resp.content_type = 'image/png'
     return resp
+
+
+# 上图图片到七牛云视图函数
+def uptoken():
+    access_key = 'wxQkXHCKUiApHFma-Q6exrQcTk9pEtLSU9w136ut'
+    secret_key = '55ChWSMN59xLNg6CvNQXrgVXmjxqRbljy3QzHuKi'
+    q = qiniu.Auth(access_key=access_key, secret_key=secret_key)
+
+    bucket = 'zlbbs-qiniu'
+    token = q.upload_token(bucket=bucket)
+    return jsonify({'uptoken': token})

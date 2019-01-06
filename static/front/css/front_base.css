@@ -1,0 +1,16 @@
+/** front_base.py by Anderson Huang at 2019/1/4 15:43 **/
+.main-container {
+    width: 990px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.lg-container {
+    width: 730px;
+    float: left;
+}
+
+.sm-container {
+    width: 250px;
+    float: right;
+}

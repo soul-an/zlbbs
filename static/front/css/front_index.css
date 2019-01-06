@@ -1,0 +1,10 @@
+/** front_base.py by Anderson Huang at 2019/1/4 15:43 **/
+.index-banner {
+    border-radius: 10px;
+    overflow: hidden;
+    height: 200px;
+}
+
+.index-banner img {
+    height: 200px;
+}

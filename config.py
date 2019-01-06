@@ -22,7 +22,8 @@ DB_URI = "mysql+pymysql://{username}:{password}@{host}:{port}" \
 SQLALCHEMY_DATABASE_URI = DB_URI
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-CMS_USER_ID = 'ahijdnknj'  # 随意设置cms用户的id字串
+CMS_USER_ID = 'ahijdnknj'  # 随意设置cms后台用户的id字串
+FRONT_USER_ID = 'GAUFHIWNGKYUjhood133jhn'  # 随意设置front前台用户的id字串
 
 # 发送者邮箱的服务器地址和邮箱配置参数，这里使用qq邮箱
 MAIL_SERVER = 'smtp.qq.com'

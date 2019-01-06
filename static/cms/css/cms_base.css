@@ -161,10 +161,6 @@ body {
     margin-top: 0;
 }
 
-/*
- * Placeholder dashboard ideas
- */
-
 .placeholders {
     margin-bottom: 30px;
     text-align: center;
@@ -194,7 +190,12 @@ body {
     overflow: hidden;
 }
 
-/* form-container样式 */
 .form-container {
     width: 300px;
+}
+
+.top-box {
+    overflow: hidden;
+    background: #ecedf0;
+    padding: 10px;
 }
