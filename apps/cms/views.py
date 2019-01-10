@@ -8,7 +8,6 @@ from flask import (
     redirect,
     url_for,
     g,
-    jsonify,
 )
 from .forms import (
     LoginForm,
@@ -16,13 +15,16 @@ from .forms import (
     ResetEmailForm,
     AddBannerForm,
     UpdateBannerForm,
+    AddBoardForm,
+    UpdateBoardForm,
 )
-from ..models import BannerModel
+from ..models import BannerModel, BoardModel, PostModel, HighlightPostModel
 from .models import CMSUser, CMSPermission
 from .decorators import login_required, permission_required
 from exts import db, mail
 from flask_mail import Message
 from utils import restful, zlcache
+from tasks import send_mail
 import config
 import string
 import random
@@ -76,11 +78,13 @@ def email_captcha():
     captcha = "".join(random.sample(source, 6))
 
     # 给获取到的新的邮箱发送邮件验证码
-    message = Message('知了论坛邮箱验证码', recipients=[email], body='你的验证码是：%s' % captcha)
-    try:
-        mail.send(message)
-    except:
-        return restful.server_error()
+    # message = Message('知了论坛邮箱验证码', recipients=[email], body='你的验证码是：%s' % captcha)
+    # try:
+    #     mail.send(message)
+    # except:
+    #     return restful.server_error()
+
+    send_mail.delay('知了论坛邮箱验证码', recipients=[email], body='你的验证码是：%s' % captcha)  # 异步发送邮件
     zlcache.set(email, captcha)  # 添加验证码缓存
     return restful.success()
 
@@ -90,7 +94,66 @@ def email_captcha():
 @login_required
 @permission_required(CMSPermission.POSTER)
 def posts():
-    return render_template('cms/cms_posts.html')
+    post_list = PostModel.query.all()
+    return render_template('cms/cms_posts.html', posts=post_list)
+
+
+# 添加加精帖子视图函数
+@bp.route('/hpost/', methods=['POST'])
+@login_required
+@permission_required(CMSPermission.POSTER)
+def hpost():
+    post_id = request.form.get('post_id')
+    if not post_id:
+        return restful.params_error('请传入帖子id！')
+
+    post = PostModel.query.get(post_id)
+    if not post:
+        return restful.params_error('没有这篇帖子！')
+
+    highlight = HighlightPostModel()
+    highlight.post = post
+
+    db.session.add(highlight)
+    db.session.commit()
+    return restful.success()
+
+
+# 取消加精帖子视图函数
+@bp.route('/uhpost/', methods=['POST'])
+@login_required
+@permission_required(CMSPermission.POSTER)
+def uhpost():
+    post_id = request.form.get('post_id')
+    if not post_id:
+        return restful.params_error('请传入帖子id！')
+
+    post = PostModel.query.get(post_id)
+    if not post:
+        return restful.params_error('没有这篇帖子！')
+
+    highlight = HighlightPostModel.query.filter_by(post_id=post_id).first()
+    db.session.delete(highlight)
+    db.session.commit()
+    return restful.success()
+
+
+# 移除加精帖子视图函数
+@bp.route('/dpost/', methods=['POST'])
+@login_required
+@permission_required(CMSPermission.POSTER)
+def dpost():
+    post_id = request.form.get('post_id')
+    if not post_id:
+        return restful.params_error('请传入帖子id！')
+
+    post = PostModel.query.get(post_id)
+    if not post:
+        return restful.params_error('没有这篇帖子！')
+
+    db.session.delete(post)
+    db.session.commit()
+    return restful.success()
 
 
 # 评论管理模块驶入
@@ -106,7 +169,66 @@ def comments():
 @login_required
 @permission_required(CMSPermission.BOARDER)
 def boards():
-    return render_template('cms/cms_boards.html')
+    board_models = BoardModel.query.all()
+    context = {
+        'boards': board_models
+    }
+    return render_template('cms/cms_boards.html', **context)
+
+
+# 添加板块视图
+@bp.route('/aboard/', methods=['POST'])
+@login_required
+@permission_required(CMSPermission.BOARDER)
+def aboard():
+    form = AddBoardForm(request.form)
+    if form.validate():
+        name = form.name.data
+
+        board = BoardModel(name=name)
+        db.session.add(board)
+        db.session.commit()
+        return restful.success()
+    else:
+        return restful.params_error(message=form.get_error())
+
+
+# 更新板块视图
+@bp.route('/uboard/', methods=['POST'])
+@login_required
+@permission_required(CMSPermission.BOARDER)
+def uboard():
+    form = UpdateBoardForm(request.form)
+    if form.validate():
+        board_id = form.board_id.data
+        name = form.name.data
+        board = BoardModel.query.get(board_id)
+        if board:
+            board.name = name
+            db.session.commit()
+            return restful.success()
+        else:
+            return restful.params_error(message='没有这个板块！')
+    else:
+        return restful.params_error(message=form.get_error())
+
+
+# 删除板块视图
+@bp.route('/dboard/', methods=['POST'])
+@login_required
+@permission_required(CMSPermission.BOARDER)
+def dboard():
+    board_id = request.form.get('board_id')
+    if not board_id:
+        return restful.params_error('请输入板块id!')
+
+    board = BoardModel.query.get(board_id)
+    if not board:
+        return restful.params_error(message='没有这个板块！')
+
+    db.session.delete(board)
+    db.session.commit()
+    return restful.success()
 
 
 # 前台用户管理模块视图

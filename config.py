@@ -23,7 +23,7 @@ SQLALCHEMY_DATABASE_URI = DB_URI
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 CMS_USER_ID = 'ahijdnknj'  # 随意设置cms后台用户的id字串
-FRONT_USER_ID = 'GAUFHIWNGKYUjhood133jhn'  # 随意设置front前台用户的id字串
+FRONT_USER_ID = 'ihisdfkjds'  # 随意设置front前台用户的id字串
 
 # 发送者邮箱的服务器地址和邮箱配置参数，这里使用qq邮箱
 MAIL_SERVER = 'smtp.qq.com'
@@ -38,3 +38,17 @@ ALIDAYU_APP_KEY = '23709557'
 ALIDAYU_APP_SECRET = 'd9e430e0a96e21c92adacb522a905c4b'
 ALIDAYU_SIGN_NAME = '小饭桌应用'
 ALIDAYU_TEMPLATE_CODE = 'SMS_68465012'
+
+# UEditor相关配置
+UEDITOR_UPLOAD_TO_QINIU = True
+UEDITOR_QINIU_ACCESS_KEY = "wxQkXHCKUiApHFma-Q6exrQcTk9pEtLSU9w136ut"
+UEDITOR_QINIU_SECRET_KEY = "55ChWSMN59xLNg6CvNQXrgVXmjxqRbljy3QzHuKi"
+UEDITOR_QINIU_BUCKET_NAME = "zlbbs-qiniu1"
+UEDITOR_QINIU_DOMAIN = "http://pl09sxlvg.bkt.clouddn.com/"
+
+# flask-paginate分页器相关配置
+PER_PAGE = 10  # 每页包含的帖子数量
+
+# Celery相关配置
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'

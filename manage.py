@@ -6,20 +6,17 @@ from exts import db
 from app import create_app
 from apps.cms import models as cms_models
 from apps.front import models as front_models
-from apps.models import BannerModel  # 轮播图模型
+from apps.models import BannerModel, BoardModel, PostModel
 
 # 后台模型对象
 CMSUser = cms_models.CMSUser
 CMSRole = cms_models.CMSRole
 CMSPermission = cms_models.CMSPermission
-
 # 前台模型对象
 FrontUser = front_models.FrontUser
 
 app = create_app()
-
 manager = Manager(app)
-
 Migrate(app, db)
 manager.add_command('db', MigrateCommand)
 
@@ -115,6 +112,22 @@ def create_front_user(telephone, username, password):
     db.session.add(user)
     db.session.commit()
     print('FRON前台用户创建成功！')
+
+
+# 命令行创建测试用的帖子
+@manager.command
+def create_test_post():
+    for x in range(1, 205):
+        title = '标题%s' % x
+        content = '内容：%s' % x
+        board = BoardModel.query.first()
+        author = FrontUser.query.first()
+        post = PostModel(title=title, content=content)
+        post.board = board
+        post.author = author
+        db.session.add(post)
+        db.session.commit()
+    print('恭喜！测试帖子添加成功！')
 
 
 if __name__ == '__main__':

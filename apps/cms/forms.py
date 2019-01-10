@@ -56,3 +56,13 @@ class AddBannerForm(BaseForm):
 # 编辑更新轮播图表单验证
 class UpdateBannerForm(AddBannerForm):
     banner_id = IntegerField(validators=[InputRequired(message='请输入轮播图的id！')])
+
+
+# 添加板块表单验证
+class AddBoardForm(BaseForm):
+    name = StringField(validators=[InputRequired(message='请输入板块名称！')])
+
+
+# 更新板块表单验证
+class UpdateBoardForm(AddBoardForm):
+    board_id = IntegerField(validators=[InputRequired(message='请输入板块id！')])

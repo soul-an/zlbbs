@@ -58,6 +58,8 @@ $(function () {
 //编辑更新轮播图功能
 $(function () {
     $('.edit-banner-btn').click(function (event) {
+        event.preventDefault();
+
         var self = $(this);
         var dialog = $('#banner-dialog');
         dialog.modal('show');
@@ -86,6 +88,8 @@ $(function () {
 // 删除轮播图功能
 $(function () {
     $(".delete-banner-btn").click(function (event) {
+        event.preventDefault();
+
         var self = $(this);
         var tr = self.parent().parent();
         var banner_id = tr.attr('data-id');
@@ -115,9 +119,9 @@ $(function () {
 $(function () {
     zlqiniu.setUp({
         // 添加七牛云存储控件的网址
-        'domain': '',
+        'domain': 'http://pl09sxlvg.bkt.clouddn.com/',
         // 按钮id
-        'browser_btn': 'upload-btn',
+        'browse_btn': 'upload-btn',
         // 上传视图url
         'uptoken_url': '/common/uptoken/',
         'success': function (up, file, info) {
