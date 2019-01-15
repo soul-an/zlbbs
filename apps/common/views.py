@@ -50,7 +50,7 @@ def sms_captcha():
         #     zlcache.set(telephone, captcha)  # 这里是为了方便开发工作
         #     return restful.success()  # 为了方便开发，假设短信发送成功
 
-        send_sms_captcha(telephone=telephone, captcha=captcha)
+        send_sms_captcha.delay(telephone=telephone, captcha=captcha)
         zlcache.set(telephone, captcha)
         return restful.success()  # 为了方便开发，假设短信发送成功
     else:
