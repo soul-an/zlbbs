@@ -1,24 +1,40 @@
 # encoding: utf-8
 # manage.py by Anderson Huang at 2018/12/24 13:45
-from flask_script import Manager
+from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 from exts import db
 from app import create_app
 from apps.cms import models as cms_models
 from apps.front import models as front_models
 from apps.models import BannerModel, BoardModel, PostModel
+import os
+
+if os.path.exists('.env'):
+    print('Importing environment from .env...')
+    for line in open('.env'):
+        var = line.strip().split('=')
+        if len(var) == 2:
+            os.environ[var[0]] = var[1]
 
 # 后台模型对象
 CMSUser = cms_models.CMSUser
 CMSRole = cms_models.CMSRole
 CMSPermission = cms_models.CMSPermission
+
 # 前台模型对象
 FrontUser = front_models.FrontUser
 
 app = create_app()
 manager = Manager(app)
 Migrate(app, db)
-manager.add_command('db', MigrateCommand)
+
+
+def make_shell_context():
+    return dict(app=app)
+
+
+# manager.add_command('db', MigrateCommand)
+manager.add_command('shell', Shell(make_context=make_shell_context))
 
 
 # 命令行创建cms用户函数
