@@ -9,12 +9,12 @@ from apps.front import models as front_models
 from apps.models import BannerModel, BoardModel, PostModel
 import os
 
-if os.path.exists('.env'):
-    print('Importing environment from .env...')
-    for line in open('.env'):
-        var = line.strip().split('=')
-        if len(var) == 2:
-            os.environ[var[0]] = var[1]
+# if os.path.exists('.env'):
+#     print('Importing environment from .env...')
+#     for line in open('.env'):
+#         var = line.strip().split('=')
+#         if len(var) == 2:
+#             os.environ[var[0]] = var[1]
 
 # 后台模型对象
 CMSUser = cms_models.CMSUser
@@ -29,12 +29,12 @@ manager = Manager(app)
 Migrate(app, db)
 
 
-def make_shell_context():
-    return dict(app=app)
+# def make_shell_context():
+#     return dict(app=app)
 
 
-# manager.add_command('db', MigrateCommand)
-manager.add_command('shell', Shell(make_context=make_shell_context))
+manager.add_command('db', MigrateCommand)
+# manager.add_command('shell', Shell(make_context=make_shell_context))
 
 
 # 命令行创建cms用户函数
