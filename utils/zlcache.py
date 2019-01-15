@@ -6,9 +6,9 @@ import memcache
 创建memcached缓存机制
 """
 
-# cache = memcache.Client(['192.168.1.114:11221'], debug=True)  # 链接远程memcached服务器
+cache = memcache.Client(['192.168.1.114:11221'], debug=True)  # 链接远程memcached服务器
 
-cache = memcache.Client(['127.0.0.1:11211'], debug=True)
+# cache = memcache.Client(['127.0.0.1:11211'], debug=True)
 
 
 def set(key, value, timeout=0):
