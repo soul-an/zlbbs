@@ -49,8 +49,8 @@ def sms_captcha():
         #     # return restful.params_error(message='短信验证码发送失败！')
         #     zlcache.set(telephone, captcha)  # 这里是为了方便开发工作
         #     return restful.success()  # 为了方便开发，假设短信发送成功
-        send_sms_captcha(telephone=telephone, code=captcha)
-        return restful.success() # 为了方便开发，假设短信发送成功
+        send_sms_captcha(telephone=telephone, captcha=captcha)
+        return restful.success()  # 为了方便开发，假设短信发送成功
     else:
         return restful.params_error(message='参数错误！')
 
