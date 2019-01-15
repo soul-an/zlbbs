@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65fdbed7-a15f-4888-8ced-7e7dc13faff6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/common/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +42,7 @@
           <entry key="jpg" value="1" />
           <entry key="js" value="34" />
           <entry key="json" value="1" />
-          <entry key="py" value="154" />
+          <entry key="py" value="155" />
           <entry key="rnc" value="1" />
         </counts>
       </usages-collector>
@@ -53,7 +53,7 @@
           <entry key="Image" value="1" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="34" />
-          <entry key="Python" value="154" />
+          <entry key="Python" value="155" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -62,7 +62,7 @@
           <entry key="css" value="1276" />
           <entry key="html" value="10204" />
           <entry key="js" value="7469" />
-          <entry key="py" value="23414" />
+          <entry key="py" value="23417" />
           <entry key="txt" value="104" />
         </counts>
       </usages-collector>
@@ -72,7 +72,7 @@
           <entry key="HTML" value="10204" />
           <entry key="JavaScript" value="7469" />
           <entry key="PLAIN_TEXT" value="104" />
-          <entry key="Python" value="23414" />
+          <entry key="Python" value="23417" />
         </counts>
       </usages-collector>
     </session>
@@ -112,14 +112,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="441">
+              <caret line="43" column="16" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
               <folding>
                 <element signature="e#66#91#0" expanded="true" />
                 <element signature="e#293#691#0" expanded="true" />
                 <element signature="e#570#642#0" expanded="true" />
                 <element signature="e#790#881#0" expanded="true" />
-                <element signature="e#952#1003#0" expanded="true" />
                 <marker date="1547129552898" expanded="true" signature="785:882" ph="..." />
                 <marker date="1547129552898" expanded="true" signature="947:948" ph="..." />
                 <marker date="1547129552898" expanded="true" signature="947:952" ph="..." />
@@ -131,8 +130,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/common/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+            <state relative-caret-position="320">
+              <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
               <folding>
                 <element signature="e#67#146#0" expanded="true" />
                 <element signature="e#1893#2205#0" expanded="true" />
@@ -571,13 +570,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="完成前后台板块管理和帖子管理功能；Celery异步发送邮件和短信功能" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/common/_heads.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" column="88" selection-start-line="10" selection-start-column="88" selection-end-line="10" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ueditor__demo/ueditor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -914,23 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="e#66#91#0" expanded="true" />
-            <element signature="e#293#691#0" expanded="true" />
-            <element signature="e#570#642#0" expanded="true" />
-            <element signature="e#790#881#0" expanded="true" />
-            <element signature="e#952#1003#0" expanded="true" />
-            <marker date="1547129552898" expanded="true" signature="785:882" ph="..." />
-            <marker date="1547129552898" expanded="true" signature="947:948" ph="..." />
-            <marker date="1547129552898" expanded="true" signature="947:952" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/front/front_signin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -950,10 +925,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/alidayu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20">
+          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
+          <folding>
+            <element signature="e#1552#2343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="43" column="16" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+          <folding>
+            <element signature="e#66#91#0" expanded="true" />
+            <element signature="e#293#691#0" expanded="true" />
+            <element signature="e#570#642#0" expanded="true" />
+            <element signature="e#790#881#0" expanded="true" />
+            <marker date="1547129552898" expanded="true" signature="785:882" ph="..." />
+            <marker date="1547129552898" expanded="true" signature="947:948" ph="..." />
+            <marker date="1547129552898" expanded="true" signature="947:952" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/common/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+        <state relative-caret-position="320">
+          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
           <folding>
             <element signature="e#67#146#0" expanded="true" />
             <element signature="e#1893#2205#0" expanded="true" />
