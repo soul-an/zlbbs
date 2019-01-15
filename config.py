@@ -8,8 +8,8 @@ import os
 
 SECRET_KEY = os.urandom(24)  # 设置随机的SECRET_KEY
 
-# HOSTNAME = '192.168.1.114'  # 链接远程mysql数据库
-HOSTNAME = '127.0.0.1'  # 链接本机mysql数据库
+HOSTNAME = '192.168.1.114'  # 链接远程mysql数据库
+# HOSTNAME = '127.0.0.1'  # 链接本机mysql数据库
 PORT = '3306'
 DATABASE = 'zlbbs'
 USERNAME = 'root'
