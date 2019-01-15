@@ -50,5 +50,7 @@ UEDITOR_QINIU_DOMAIN = "http://pl09sxlvg.bkt.clouddn.com/"
 PER_PAGE = 10  # 每页包含的帖子数量
 
 # Celery相关配置
-CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'  # 本地
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+# CELERY_RESULT_BACKEND = 'redis://192.168.1.114:6379/0'
+# CELERY_BROKER_URL = 'redis://192.168.1.114:6379/0'
