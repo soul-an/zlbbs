@@ -8,7 +8,9 @@ from flask import (
     session,
     url_for,
     g,
-    abort)
+    abort,
+    redirect
+)
 from .forms import (
     SignupForm,
     SigninForm,
@@ -130,6 +132,14 @@ def add_comment():
             return restful.params_error('没有这篇帖子！')
     else:
         return restful.params_error(form.get_error())
+
+
+# 前台用户注销视图
+@bp.route('/logout/')
+@login_required
+def logout():
+    del session[config.FRONT_USER_ID]
+    return redirect(url_for('front.signin'))
 
 
 # 注册类视图

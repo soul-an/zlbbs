@@ -84,7 +84,12 @@ def email_captcha():
     # except:
     #     return restful.server_error()
 
-    send_mail.delay('知了论坛邮箱验证码', recipients=[email], body='你的验证码是：%s' % captcha)  # 异步发送邮件
+    # 修改为异步发送邮件
+    try:
+        send_mail.delay('知了论坛邮箱验证码', recipients=[email], body='你的验证码是：%s' % captcha)
+    except:
+        return restful.server_error()
+
     zlcache.set(email, captcha)  # 添加验证码缓存
     return restful.success()
 
