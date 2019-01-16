@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="65fdbed7-a15f-4888-8ced-7e7dc13faff6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/cms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/common/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/front/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/front/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/front_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/front_base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +22,7 @@
     <session id="1158401098">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="32" />
+          <entry key="project.closed" value="33" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="3" />
@@ -68,7 +63,7 @@
           <entry key="html" value="10233" />
           <entry key="js" value="7469" />
           <entry key="py" value="23589" />
-          <entry key="txt" value="104" />
+          <entry key="txt" value="155" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -76,7 +71,7 @@
           <entry key="CSS" value="1276" />
           <entry key="HTML" value="10233" />
           <entry key="JavaScript" value="7469" />
-          <entry key="PLAIN_TEXT" value="104" />
+          <entry key="PLAIN_TEXT" value="155" />
           <entry key="Python" value="23589" />
         </counts>
       </usages-collector>
@@ -124,8 +119,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/front/front_base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="42" column="115" selection-start-line="42" selection-start-column="115" selection-end-line="42" selection-end-column="115" />
+            <state relative-caret-position="80">
+              <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -238,7 +233,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="522" />
+    <option name="x" value="528" />
+    <option name="y" value="34" />
     <option name="width" value="1215" />
     <option name="height" value="1017" />
   </component>
@@ -291,7 +287,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="file.status.colors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -449,7 +445,21 @@
       <option name="project" value="LOCAL" />
       <updated>1547192986737</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="完成前后注销功能，利用uWSGI+Nginx+Supervisor把项目部署到Ubuntu服务器上">
+      <created>1547629699386</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1547629699386</updated>
+    </task>
+    <task id="LOCAL-00011" summary="完成前后注销功能，利用uWSGI+Nginx+Supervisor把项目部署到Ubuntu服务器上">
+      <created>1547630191060</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1547630191060</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -463,7 +473,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="348" y="0" width="810" height="678" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49911818" weight="0.2925532" />
       <window_info id="Structure" order="1" sideWeight="0.50088185" side_tool="true" weight="0.29441625" />
@@ -478,7 +487,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013298" side_tool="true" weight="0.32783884" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013298" side_tool="true" weight="0.3266055" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -524,7 +533,8 @@
     <MESSAGE value="完成front前台用户注册功能" />
     <MESSAGE value="完成前台展示和后台管理的轮播图功能" />
     <MESSAGE value="完成前后台板块管理和帖子管理功能；Celery异步发送邮件和短信功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成前后台板块管理和帖子管理功能；Celery异步发送邮件和短信功能" />
+    <MESSAGE value="完成前后注销功能，利用uWSGI+Nginx+Supervisor把项目部署到Ubuntu服务器上" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成前后注销功能，利用uWSGI+Nginx+Supervisor把项目部署到Ubuntu服务器上" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../ueditor__demo/app.py">
@@ -916,8 +926,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/front/front_base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="42" column="115" selection-start-line="42" selection-start-column="115" selection-end-line="42" selection-end-column="115" />
+        <state relative-caret-position="80">
+          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
